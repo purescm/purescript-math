@@ -30,7 +30,8 @@
           tau
           sqrt1_2
           sqrt2)
-  (import (only (rnrs base) define lambda quote error))
+  (import (only (rnrs base) define lambda quote error)
+          (only (rnrs arithmetic flonums) flmax flmin flsqrt))
 
   (define abs
     (lambda (n)
@@ -85,12 +86,12 @@
   (define max
     (lambda (n1)
       (lambda (n2)
-        (error #f "Math:max not implemented."))))
+        (flmax n1 n2))))
 
   (define min
     (lambda (n1)
       (lambda (n2)
-        (error #f "Math:min not implemented."))))
+        (flmin n1 n2))))
 
   (define pow
     (lambda (n)
@@ -112,7 +113,7 @@
 
   (define sqrt
     (lambda (n)
-      (error #f "Math:sqrt not implemented.")))
+      (flsqrt n)))
 
   (define tan
     (lambda (n)
